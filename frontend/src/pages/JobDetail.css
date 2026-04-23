@@ -1,0 +1,28 @@
+/* JobDetail.css */
+.job-detail { padding: 32px 0 80px; }
+.back-btn { background: none; border: none; color: var(--muted); cursor: pointer; margin-bottom: 24px; font-size: 14px; transition: color 0.2s; }
+.back-btn:hover { color: var(--text); }
+.detail-layout { display: grid; grid-template-columns: 1fr 320px; gap: 24px; align-items: start; }
+.detail-header { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 20px; }
+.company-logo-lg {
+  width: 60px; height: 60px; border-radius: 12px;
+  background: var(--border); display: flex; align-items: center;
+  justify-content: center; font-size: 24px; font-weight: 700; color: var(--accent); flex-shrink: 0;
+  overflow: hidden;
+}
+.company-logo-lg img { width: 100%; height: 100%; object-fit: cover; }
+.detail-header h1 { font-size: 24px; line-height: 1.2; margin-bottom: 6px; }
+.detail-company { color: var(--muted); font-size: 14px; }
+.detail-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
+.detail-section { margin-bottom: 28px; }
+.detail-section h3 { font-size: 16px; margin-bottom: 12px; color: var(--accent2); }
+.requirements-list { padding-left: 20px; color: var(--muted); line-height: 2; }
+.apply-card { text-align: center; border-color: var(--accent); }
+.apply-card h3 { font-size: 18px; }
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+  display: flex; align-items: center; justify-content: center; z-index: 200; padding: 20px;
+}
+.modal { width: 100%; max-width: 520px; max-height: 90vh; overflow-y: auto; }
+.modal h2 { margin-bottom: 4px; }
+@media (max-width: 900px) { .detail-layout { grid-template-columns: 1fr; } }

@@ -1,0 +1,9 @@
+/* FilterPanel.css */
+.filter-panel { position: sticky; top: 84px; }
+.filter-header {
+  display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;
+}
+.filter-header h3 { font-size: 16px; }
+.reset-btn { background: none; border: none; color: var(--accent); cursor: pointer; font-size: 13px; }
+.filter-group { margin-bottom: 18px; }
+.filter-group label { font-size: 12px; color: var(--muted); margin-bottom: 6px; display: block; text-transform: uppercase; letter-spacing: 0.5px; }

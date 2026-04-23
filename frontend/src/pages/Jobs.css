@@ -1,0 +1,13 @@
+/* Jobs.css */
+.jobs-page { padding: 40px 0 80px; }
+.jobs-header { margin-bottom: 32px; }
+.jobs-header h1 { font-size: 28px; margin-bottom: 16px; }
+.total-count { color: var(--muted); font-size: 18px; font-weight: 400; }
+.search-inline { display: flex; gap: 8px; max-width: 500px; }
+.search-inline input { flex: 1; }
+.jobs-layout { display: grid; grid-template-columns: 260px 1fr; gap: 28px; align-items: start; }
+.jobs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; }
+.empty-state { text-align: center; padding: 80px; color: var(--muted); }
+.empty-state span { font-size: 48px; display: block; margin-bottom: 12px; }
+.pagination { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 36px; }
+@media (max-width: 900px) { .jobs-layout { grid-template-columns: 1fr; } }

@@ -1,0 +1,24 @@
+/* PostJob.css */
+.post-job { padding: 40px 0 80px; max-width: 800px; }
+.post-header { margin-bottom: 28px; }
+.post-header h1 { font-size: 28px; margin-bottom: 6px; }
+.post-form { padding: 36px; }
+.section-title {
+  font-size: 14px; text-transform: uppercase; letter-spacing: 1px;
+  color: var(--accent2); margin: 28px 0 16px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.section-title:first-child { margin-top: 0; }
+.skills-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.skill-tag {
+  display: flex; align-items: center; gap: 6px;
+  padding: 5px 12px; background: rgba(108,99,255,0.15);
+  border: 1px solid var(--accent); border-radius: 20px;
+  font-size: 13px; color: var(--accent);
+}
+.skill-tag button {
+  background: none; border: none; cursor: pointer;
+  color: var(--accent); font-size: 16px; line-height: 1; padding: 0;
+}
+.skill-tag button:hover { color: var(--danger); }
+.post-actions { display: flex; gap: 12px; margin-top: 32px; }
