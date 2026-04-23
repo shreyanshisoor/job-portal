@@ -1,4 +1,4 @@
-# 🚀 Hireloop — Full Stack Job Portal
+# 🚀 SeekForGeeks — Full Stack Job Portal
 
 A complete full-stack Job Portal built with the MERN stack (MongoDB, Express, React, Node.js).  
 Covers all 8 experiments of the Full Stack Development syllabus.
