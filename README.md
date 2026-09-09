@@ -1,170 +1,285 @@
-# 🚀 SeekForGeeks — Full Stack Job Portal
+# 🚀 SeekForGeeks
 
-A complete full-stack Job Portal built with the MERN stack (MongoDB, Express, React, Node.js).  
-Covers all 8 experiments of the Full Stack Development syllabus.
+A full-stack recruitment platform built with the MERN stack that connects job seekers with recruiters through role-based dashboards, job listings, applications, company management, and secure authentication.
 
----
-
-## 📁 Project Structure
-
-```
-job-portal/
-├── backend/                  # Node.js + Express API
-│   ├── config/
-│   │   └── db.js             # MongoDB connection (Exp 6)
-│   ├── middleware/
-│   │   └── auth.js           # JWT protect + authorize (Exp 8)
-│   ├── models/               # Mongoose schemas (Exp 7)
-│   │   ├── User.js
-│   │   ├── Job.js
-│   │   ├── Company.js
-│   │   └── Application.js
-│   ├── routes/               # RESTful API routes (Exp 5)
-│   │   ├── auth.js           # /api/auth
-│   │   ├── jobs.js           # /api/jobs
-│   │   ├── companies.js      # /api/companies
-│   │   ├── applications.js   # /api/applications
-│   │   └── users.js          # /api/users
-│   ├── .env.example
-│   ├── package.json
-│   └── server.js             # Express entry point (Exp 5)
-│
-└── frontend/                 # React.js app
-    └── src/
-        ├── components/
-        │   ├── Navbar/       # Sticky responsive navbar (Exp 4)
-        │   ├── JobCard/      # Reusable job card component (Exp 4)
-        │   └── FilterPanel/  # Search filters (Exp 4)
-        ├── features/
-        │   ├── authSlice.js  # Redux auth state (Exp 8)
-        │   └── jobSlice.js   # Redux jobs state (Exp 8)
-        ├── pages/
-        │   ├── Home.jsx      # Landing page (Exp 2, 3)
-        │   ├── Jobs.jsx      # Job listing + search (Exp 4)
-        │   ├── JobDetail.jsx # Job detail + apply modal (Exp 4, 8)
-        │   ├── Login.jsx     # Login form (Exp 4, 8)
-        │   ├── Register.jsx  # Register with role selection (Exp 4)
-        │   ├── Dashboard.jsx # Role-based dashboard (Exp 4, 8)
-        │   ├── PostJob.jsx   # Post a job (Recruiter) (Exp 4)
-        │   ├── Profile.jsx   # Edit profile (Exp 4)
-        │   └── Companies.jsx # Browse & create companies (Exp 4)
-        ├── utils/
-        │   └── api.js        # Axios instance + JWT interceptor (Exp 8)
-        ├── store.js          # Redux store (Exp 8)
-        └── App.js            # Routing + protected routes (Exp 4)
-```
+> Built with React, Redux Toolkit, Node.js, Express, MongoDB, and JWT authentication.
 
 ---
 
-## ⚙️ Setup Instructions
+## ✨ Features
 
-### Prerequisites
-- Node.js v18+
-- MongoDB (local or Atlas)
-- Git
+### 👤 Job Seekers
+- Register and log in securely
+- Browse available job listings
+- Search and filter jobs
+- View detailed job information
+- Apply for jobs
+- Track submitted applications
+- Save and unsave jobs
+- Update profile information
 
-### 1. Clone & Install
+### 🧑‍💼 Recruiters
+- Register and log in as a recruiter
+- Create and manage companies
+- Post new job opportunities
+- Update and delete job listings
+- View applicants for posted jobs
+- Update application status
+- Manage recruiter profile
 
-```bash
-# Backend
-cd backend
-npm install
-cp .env.example .env
-# Edit .env with your MongoDB URI and JWT secret
-
-# Frontend
-cd ../frontend
-npm install
-```
-
-### 2. Start Development Servers
-
-```bash
-# Terminal 1 — Backend (port 5000)
-cd backend
-npm run dev
-
-# Terminal 2 — Frontend (port 3000)
-cd frontend
-npm start
-```
-
-### 3. Open in Browser
-```
-http://localhost:3000
-```
-
----
-
-## 🔑 API Endpoints
-
-### Auth
-| Method | Endpoint             | Access  | Description       |
-|--------|----------------------|---------|-------------------|
-| POST   | /api/auth/register   | Public  | Register user     |
-| POST   | /api/auth/login      | Public  | Login + get JWT   |
-| GET    | /api/auth/me         | Private | Get current user  |
-
-### Jobs
-| Method | Endpoint       | Access    | Description           |
-|--------|----------------|-----------|-----------------------|
-| GET    | /api/jobs      | Public    | List jobs (filters)   |
-| GET    | /api/jobs/:id  | Public    | Get single job        |
-| POST   | /api/jobs      | Recruiter | Post new job          |
-| PUT    | /api/jobs/:id  | Recruiter | Update job            |
-| DELETE | /api/jobs/:id  | Recruiter | Delete job            |
-
-### Applications
-| Method | Endpoint                      | Access    | Description              |
-|--------|-------------------------------|-----------|--------------------------|
-| POST   | /api/applications/:jobId      | Seeker    | Apply to a job           |
-| GET    | /api/applications/my          | Seeker    | My applications          |
-| GET    | /api/applications/job/:jobId  | Recruiter | All applicants for a job |
-| PUT    | /api/applications/:id/status  | Recruiter | Update status            |
-
-### Companies
-| Method | Endpoint           | Access    | Description        |
-|--------|--------------------|-----------|--------------------|
-| GET    | /api/companies     | Public    | List all companies |
-| POST   | /api/companies     | Recruiter | Create company     |
-| PUT    | /api/companies/:id | Recruiter | Update company     |
-
-### Users
-| Method | Endpoint                 | Access  | Description       |
-|--------|--------------------------|---------|-------------------|
-| PUT    | /api/users/profile       | Private | Update profile    |
-| POST   | /api/users/save-job/:id  | Seeker  | Save/unsave job   |
-| GET    | /api/users/saved-jobs    | Seeker  | Get saved jobs    |
-
----
-
-## 🗂️ Experiment Coverage
-
-| Experiment | Topics Covered | Where in Project |
-|---|---|---|
-| Exp 1 | VS Code, Git, Postman, Node.js setup | README setup section |
-| Exp 2 | HTML structure, semantic tags, CSS Flexbox/Grid, responsive | All CSS files, index.css |
-| Exp 3 | JS variables, loops, DOM manipulation | React components (useEffect, map, filter) |
-| Exp 4 | React components, props, state, events, forms, API calls | All pages & components |
-| Exp 5 | Express server, middleware, routing, REST APIs | server.js, all routes/ |
-| Exp 6 | MongoDB, connecting backend with database | config/db.js |
-| Exp 7 | CRUD operations, Mongoose ORM | models/, all route handlers |
-| Exp 8 | JWT auth, role-based access, Redux state management | middleware/auth.js, features/ |
-
----
-
-## 👤 Test Accounts (after seeding)
-
-| Role | Email | Password |
-|---|---|---|
-| Job Seeker | seeker@test.com | password123 |
-| Recruiter | recruiter@test.com | password123 |
+### 🔐 Authentication & Authorization
+- JWT-based authentication
+- Password hashing
+- Protected routes
+- Role-based authorization
+- Separate Job Seeker and Recruiter workflows
 
 ---
 
 ## 🛠️ Tech Stack
 
-**Frontend:** React 18, React Router v6, Redux Toolkit, Axios, React Toastify  
-**Backend:** Node.js, Express.js, Mongoose, bcryptjs, jsonwebtoken, express-validator  
-**Database:** MongoDB  
-**Styling:** Custom CSS with CSS variables (dark theme)
+### Frontend
+
+- React 18
+- React Router
+- Redux Toolkit
+- Axios
+- React Toastify
+- Custom CSS
+
+### Backend
+
+- Node.js
+- Express.js
+- Mongoose
+- JSON Web Token (JWT)
+- bcryptjs
+- express-validator
+
+### Database
+
+- MongoDB
+
+### Tools
+
+- Git
+- GitHub
+- Postman
+- VS Code
+
+---
+
+## 🏗️ Architecture
+
+```text
+                    ┌─────────────────────┐
+                    │      React App      │
+                    │   Redux Toolkit     │
+                    └──────────┬──────────┘
+                               │
+                           Axios / HTTP
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │   Express REST API  │
+                    │   JWT Middleware    │
+                    └──────────┬──────────┘
+                               │
+                            Mongoose
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │       MongoDB       │
+                    └─────────────────────┘
+
+---
+
+SeekForGeeks/
+│
+├── backend/
+│   ├── config/
+│   │   └── db.js
+│   │
+│   ├── middleware/
+│   │   └── auth.js
+│   │
+│   ├── models/
+│   │   ├── User.js
+│   │   ├── Job.js
+│   │   ├── Company.js
+│   │   └── Application.js
+│   │
+│   ├── routes/
+│   │   ├── auth.js
+│   │   ├── jobs.js
+│   │   ├── companies.js
+│   │   ├── applications.js
+│   │   └── users.js
+│   │
+│   ├── .env.example
+│   ├── package.json
+│   └── server.js
+│
+├── frontend/
+│   └── src/
+│       ├── components/
+│       ├── features/
+│       │   ├── authSlice.js
+│       │   └── jobSlice.js
+│       │
+│       ├── pages/
+│       │   ├── Home.jsx
+│       │   ├── Jobs.jsx
+│       │   ├── JobDetail.jsx
+│       │   ├── Login.jsx
+│       │   ├── Register.jsx
+│       │   ├── Dashboard.jsx
+│       │   ├── PostJob.jsx
+│       │   ├── Profile.jsx
+│       │   └── Companies.jsx
+│       │
+│       ├── utils/
+│       │   └── api.js
+│       │
+│       ├── store.js
+│       └── App.js
+│
+└── README.md
+
+---
+
+🔌 API Endpoints
+
+Authentication
+| Method | Endpoint             | Access  | Description           |
+| ------ | -------------------- | ------- | --------------------- |
+| POST   | `/api/auth/register` | Public  | Register a new user   |
+| POST   | `/api/auth/login`    | Public  | Login and receive JWT |
+| GET    | `/api/auth/me`       | Private | Get current user      |
+
+Jobs
+| Method | Endpoint        | Access    | Description      |
+| ------ | --------------- | --------- | ---------------- |
+| GET    | `/api/jobs`     | Public    | Get all jobs     |
+| GET    | `/api/jobs/:id` | Public    | Get a single job |
+| POST   | `/api/jobs`     | Recruiter | Create a job     |
+| PUT    | `/api/jobs/:id` | Recruiter | Update a job     |
+| DELETE | `/api/jobs/:id` | Recruiter | Delete a job     |
+
+Applications
+| Method | Endpoint                       | Access     | Description               |
+| ------ | ------------------------------ | ---------- | ------------------------- |
+| POST   | `/api/applications/:jobId`     | Job Seeker | Apply for a job           |
+| GET    | `/api/applications/my`         | Job Seeker | View my applications      |
+| GET    | `/api/applications/job/:jobId` | Recruiter  | View applicants           |
+| PUT    | `/api/applications/:id/status` | Recruiter  | Update application status |
+
+Companies
+| Method | Endpoint             | Access    | Description    |
+| ------ | -------------------- | --------- | -------------- |
+| GET    | `/api/companies`     | Public    | View companies |
+| POST   | `/api/companies`     | Recruiter | Create company |
+| PUT    | `/api/companies/:id` | Recruiter | Update company |
+
+Users
+| Method | Endpoint                  | Access     | Description         |
+| ------ | ------------------------- | ---------- | ------------------- |
+| PUT    | `/api/users/profile`      | Private    | Update user profile |
+| POST   | `/api/users/save-job/:id` | Job Seeker | Save or unsave job  |
+| GET    | `/api/users/saved-jobs`   | Job Seeker | View saved jobs     |
+
+---
+
+⚙️ Getting Started
+
+Prerequisites
+
+Make sure you have installed:
+    Node.js 18+
+    MongoDB or MongoDB Atlas
+    Git
+
+1. Clone the repository
+    git clone https://github.com/shreyanshisoor/SeekForGeeks.git
+    cd SeekForGeeks
+
+2. Install backend dependencies
+    cd backend
+    npm install
+    (Create a .env file using .env.example.)
+
+    Example:
+
+        MONGO_URI=your_mongodb_connection_string
+        JWT_SECRET=your_jwt_secret
+        PORT=5000
+
+        *Never commit your real .env file.
+
+3. Install frontend dependencies
+    cd ../frontend
+    npm install
+
+4. Start the backend
+    cd backend
+    npm run dev
+
+    The backend runs on:
+        http://localhost:5000
+
+5. Start the frontend
+    cd frontend
+    npm start
+
+    The application runs on:
+        http://localhost:3000
+
+---
+
+🔑 Demo Access
+
+The application supports separate Job Seeker and Recruiter roles.
+
+For local testing, create an account through the registration flow.
+
+---
+
+📸 Screenshots
+
+Screenshots of the application will be added here.
+
+Home Page
+<!-- Add screenshot here -->
+Job Listings
+<!-- Add screenshot here -->
+Job Seeker Dashboard
+<!-- Add screenshot here -->
+Recruiter Dashboard
+<!-- Add screenshot here -->
+
+----
+
+🚧 Future Improvements
+    Live deployment
+    Resume upload support
+    Advanced search and filters
+    Pagination
+    Email notifications
+    Recruiter analytics dashboard
+    Password reset flow
+    Improved responsive design
+    Automated testing
+    CI/CD with GitHub Actions
+
+---
+
+👩‍💻 Author
+
+Shreyanshi Soor
+GitHub: @shreyanshisoor
+
+----
+
+⭐ Support
+
+If you found this project useful or interesting, consider giving the repository a star.
